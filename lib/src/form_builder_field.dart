@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+enum OptionsOrientation { horizontal, vertical, wrap }
+enum ControlAffinity { leading, trailing }
+
 class FormBuilderField<T> extends FormField<T> {
   /// Used to reference the field within the form, or to reference form data
   /// after the form is submitted.
@@ -94,7 +97,7 @@ class FormBuilderFieldState<T> extends FormFieldState<T> {
   FormBuilderState _formBuilderState;
 
   @override
-  bool get hasError => super.hasError && widget.decoration?.errorText != null;
+  bool get hasError => super.hasError || widget.decoration?.errorText != null;
 
   @override
   bool get isValid => super.isValid && widget.decoration?.errorText == null;
