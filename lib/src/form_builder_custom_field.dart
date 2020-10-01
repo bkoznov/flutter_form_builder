@@ -93,7 +93,7 @@ class FormBuilderCustomFieldState<T> extends State<FormBuilderCustomField<T>> {
         builder:
             widget.formField.builder ?? (FormField<T> field) => Container(),
         enabled: widget.formField.enabled,
-        autovalidate: widget.formField.autovalidate,
+        autovalidate: widget.formField.autovalidateMode != AutovalidateMode.disabled,
         initialValue: _initialValue,
       ), //widget.formField,
     );
